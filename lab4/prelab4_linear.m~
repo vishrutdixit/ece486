@@ -1,0 +1,15 @@
+time = Elect(:,1);
+voltage = Elect(:,2);
+
+coeffs = polyfit(time, voltage, 1)
+
+y = coeffs(1)*Elect(1:10,1) + coeffs(2);
+
+figure(1), plot(Elect(1:200,1), Elect(1:200,2))
+figure(2), plot(Elect(1:200,1), y)
+
+Rs = 2.5;
+Ra = 3.3;
+
+Vss = 
+
