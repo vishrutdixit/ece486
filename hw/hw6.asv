@@ -1,0 +1,14 @@
+s = tf('s');
+T = .1;
+sys1app = (1-T*s/2)/(1+T*s/2);
+sys1 = exp(-T*s);
+
+K = 12;
+sys2 = K/(s*(s^2+4*s+8));
+sys2closed = sys2 / ( 1 + sys2 );
+
+sys3 = 4*(s/.8+1)/(s/5+1)*(s+.05)/(s+.02);
+
+hold on
+grid on
+bode(sys3);
