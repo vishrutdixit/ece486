@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 close all
 s = tf('s');
 
@@ -22,3 +23,10 @@ end
 disp(Mps)
 disp(Mrs)
 
+=======
+s = tf('s');
+
+%% Q1
+
+g = 
+>>>>>>> 8a08db7c19b526b234ae8c5639da3749d63c1eb7
