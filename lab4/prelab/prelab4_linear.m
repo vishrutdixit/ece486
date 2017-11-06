@@ -1,8 +1,8 @@
-%load('.\data\lab4');
+%load('..\data\lab4');
 close all
 
-time = Elect5(:,1);
-voltage = Elect5(:,2);
+time = Elect6(:,1);
+voltage = Elect6(:,2);
 
 offset_idx = find(time > 1e-3, 1, 'first')
 
@@ -18,6 +18,9 @@ out = log(Vss - voltage);
 
 idx = find(time > 1.5e-3, 1, 'first')
 idx = idx-1
+
+t6 = time(1:idx);
+y6 = out(1:idx);
 
 coeffs = polyfit(time(1:idx), out(1:idx), 1)
 

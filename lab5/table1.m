@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 P1 = .15;
 P2 = 0;
 
@@ -21,3 +22,5 @@ end
 
 error = 1/w^2
 
+=======
+>>>>>>> Stashed changes

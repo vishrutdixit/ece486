@@ -26,6 +26,9 @@ out = log(w - Wss);
 %idx = find(time > .45, 1, 'first');
 %idx = idx-1;
 
+t6 = time;
+y6 = out;
+
 coeffs = polyfit(time, out, 1);
 
 y_fitted = coeffs(1)*time + coeffs(2);

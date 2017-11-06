@@ -19,7 +19,17 @@ coeffs = polyfit(w(1:8), frictional_force(1:8), 1)
 b_pos = coeffs(1)
 c_pos = coeffs(2)
 
+figure(1), plot(w(1:8), frictional_force(1:8))
+title('Frictional Force vs Angular Velocity for positive')
+xlabel('$\omega$', 'interpreter', 'latex');
+ylabel('frictional force');
+
 % negative b, c calculations\
 coeffs = polyfit(w(9:16), frictional_force(9:16), 1)
 b_neg = coeffs(1)
 c_neg = coeffs(2)
+
+figure(2), plot(w(9:16), frictional_force(9:16))
+title('Frictional Force vs Angular Velocity for negative')
+xlabel('$\omega$', 'interpreter', 'latex');
+ylabel('frictional force');
