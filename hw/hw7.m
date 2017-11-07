@@ -1,32 +1,86 @@
-<<<<<<< HEAD
 close all
-s = tf('s');
-
-as = [.01 0.01 1 10 100];
-
-Mps = zeros(1,size(as,2));
-Mrs = zeros(1,size(as,2));
-
-idx = 0;
-for a = as
-    sys = ((s/a) + 1) /(s^2 + s + 1);
-    idx = idx+1;
-    t = 0:.1:20;
-    %figure(idx), step(sys,t)
-    [Mp, tr, ts] = StepResponseMetrics(step(sys,t), t, 1, 1);
-     Mps(idx) = Mp;
-     Mr = getPeakGain(sys);
-     Mrs(idx) = Mr;
-     %bode(sys)
-end
-
-disp(Mps)
-disp(Mrs)
-
-=======
 s = tf('s');
 
 %% Q1
 
-g = 
->>>>>>> 8a08db7c19b526b234ae8c5639da3749d63c1eb7
+% 
+% as = [.01 0.1 1 10 100];
+% 
+% Mps = zeros(1,size(as,2));
+% Mrs = zeros(1,size(as,2));
+% 
+% idx = 0;
+% for a = as
+%     sys1 = ((s/a) + 1) /(s^2 + s + 1);
+%     idx = idx+1;
+%     t = 0:.1:20;
+%     %figure(idx), step(sys,t)
+%     [Mp, tr, ts] = StepResponseMetrics(step(sys1,t), t, 1, 1);
+%      Mps(idx) = Mp;
+%      Mr = getPeakGain(sys1);
+%      Mrs(idx) = Mr;
+%      %bode(sys)
+% end
+% 
+% disp(Mps)
+% disp(Mrs)
+
+%% Q2 
+
+% ps = [0.01 0.1 1 10 100];
+% 
+% bandwidths = zeros(1, size(ps,2));
+% 
+% i=1;
+% for p = ps
+%     sys2 = 1/(((s/p)+1)*(s^2+s+1));
+%     figure(1), hold on;
+%     bode(sys2);
+%     bandwidths(i) = bandwidth(sys2);
+%     i=i+1;
+% end
+% 
+% disp(bandwidths)
+
+
+%% Q3
+
+g = 1/s^2;
+kd = (1/16)*(((s/.1)+1)/((s/2)+1));
+kd2 = (1/16)*(((s/.075)+1)/((s/10)+1));
+
+
+open1 = g*kd;
+closed1 = open1/(1+open1);
+
+%margin(open1);
+%bandwidth(closed1)
+
+figure(1),hold on;
+
+step (closed1)
+
+open2 = g*kd2;
+closed2 = open2/(1+open2);
+
+step(closed2)
+legend('Original', 'Adjusted');
+
+
+%% Q4
+
+% sys3 = 1/((s+2)*(s+4));
+% figure(1),bode(sys3);
+% figure(2),nyquist(sys3);
+% 
+% sys3 = 1/((s+1)*(s^2+s+1));
+% figure(3),bode(sys3);
+% figure(4),nyquist(sys3);
+% 
+% w = 0
+% 
+% i = (2*w - w^3)/((1-2*w^2)^2 - (4*w^4 -4*w^2 - w^6));
+% r = (1 - 2*w^2)/((1-2*w^2)^2 - (4*w^4 -4*w^2 - w^6))
+
+
+
