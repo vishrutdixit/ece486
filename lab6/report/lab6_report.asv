@@ -1,0 +1,15 @@
+fresp;
+omega = dsa(:,1);
+data = dsa(:,2) + 1i*dsa(:,3);
+
+s = tf('s');
+
+%%  Bode Plots of DSA Data
+
+dsatf = 64.275*(0.1294*s+1)/((0.0065*s+1)*(0.2027*s+1))
+
+figure(1);
+subplot(2,1,1), semilogx(omega,mag2db(abs(data))), hold on, bodemag(dsatf);
+h = bode(dsatf)
+setoptions(h,'Visible','off');
+subplot(2,1,2), semilogx(omega,180/pi*(phase(data))), hold on, h;
