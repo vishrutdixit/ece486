@@ -5,7 +5,6 @@ close all
 VS = 1;
 
 %constants
-Kc = .4; 
 Kp = 10/(2*pi);
 Ka = 2.4;
 
@@ -18,7 +17,8 @@ Ka = 2.4;
 K = 18.66;
 Tm = .2027;
 
-%compensators
+%compensator values
+Kc = .4; 
 Tz= 1/2.3;
 Tp = 1/92;
 
