@@ -164,7 +164,7 @@ REQ_INCLUDES := $(MATLAB_ROOT)/simulink/include;$(MATLAB_ROOT)/extern/include;$(
 REQ_INCLUDES += ;$(MATLAB_ROOT)/toolbox/shared/can/src/scanutil;$(SLDRTDIR)/src
 
 # additional includes
-REQ_INCLUDES += ;U:/ece486/final;U:/ece486/final/model2b_sldrt_win64;C:/vjdixit2/final_lab_models;$(MATLAB_ROOT)/rtw/c/src/ext_mode/common;$(MATLAB_ROOT)/rtw/c/coecsl/devices
+REQ_INCLUDES += ;U:/ece486/final;U:/ece486/final/model2b_sldrt_win64;U:/ece486/final/final_lab_models;$(MATLAB_ROOT)/rtw/c/src/ext_mode/common;$(MATLAB_ROOT)/rtw/c/coecsl/devices
 
 # shared includes
 ifneq ($(SHARED_SRC_DIR),)

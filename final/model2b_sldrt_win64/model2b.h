@@ -6,9 +6,9 @@
  *
  * Code generation for model "model2b".
  *
- * Model version              : 1.29
+ * Model version              : 1.30
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 01 17:01:44 2017
+ * C source code generated on : Wed Nov 29 15:07:03 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -838,6 +838,14 @@ typedef struct {
 
   struct {
     void *LoggedData;
+  } ToWorkspace1_PWORK;                /* '<Root>/To Workspace1' */
+
+  struct {
+    void *LoggedData;
+  } ToWorkspace2_PWORK;                /* '<Root>/To Workspace2' */
+
+  struct {
+    void *LoggedData;
   } control_effort_PWORK;              /* '<Root>/control_effort ' */
 
   struct {
@@ -930,13 +938,13 @@ struct P_model2b_T_ {
   real_T Switch2_Threshold;            /* Expression: 0.1
                                         * Referenced by: '<S1>/Switch2'
                                         */
-  real_T Gain7_Gain;                   /* Expression: 0
+  real_T Gain7_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain7'
                                         */
   real_T Gain2_Gain;                   /* Expression: 0.1
                                         * Referenced by: '<Root>/Gain2'
                                         */
-  real_T NoCompensation_Value;         /* Expression: 0
+  real_T NoCompensation_Value;         /* Expression: 5
                                         * Referenced by: '<Root>/No Compensation'
                                         */
   real_T Step_Time;                    /* Expression: 0

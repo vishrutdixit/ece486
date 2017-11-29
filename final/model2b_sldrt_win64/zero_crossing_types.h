@@ -6,9 +6,9 @@
  *
  * Code generation for model "model2b".
  *
- * Model version              : 1.29
+ * Model version              : 1.30
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 01 17:01:44 2017
+ * C source code generated on : Wed Nov 29 15:07:03 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

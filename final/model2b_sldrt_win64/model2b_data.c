@@ -6,9 +6,9 @@
  *
  * Code generation for model "model2b".
  *
- * Model version              : 1.29
+ * Model version              : 1.30
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 01 17:01:44 2017
+ * C source code generated on : Wed Nov 29 15:07:03 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -56,13 +56,13 @@ P_model2b_T model2b_P = {
   0.1,                                 /* Expression: 0.1
                                         * Referenced by: '<S1>/Switch2'
                                         */
-  0.0,                                 /* Expression: 0
+  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Gain7'
                                         */
   0.1,                                 /* Expression: 0.1
                                         * Referenced by: '<Root>/Gain2'
                                         */
-  0.0,                                 /* Expression: 0
+  5.0,                                 /* Expression: 5
                                         * Referenced by: '<Root>/No Compensation'
                                         */
   0.0,                                 /* Expression: 0
@@ -113,7 +113,7 @@ P_model2b_T model2b_P = {
   1U,                                  /* Computed Parameter: ManualSwitch_CurrentSetting
                                         * Referenced by: '<Root>/Manual Switch'
                                         */
-  0U,                                  /* Computed Parameter: ManualSwitch1_CurrentSetting
+  1U,                                  /* Computed Parameter: ManualSwitch1_CurrentSetting
                                         * Referenced by: '<Root>/Manual Switch1'
                                         */
   0U                                   /* Computed Parameter: ManualSwitch2_CurrentSetting

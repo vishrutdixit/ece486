@@ -6,9 +6,9 @@
  *
  * Code generation for model "model2b".
  *
- * Model version              : 1.29
+ * Model version              : 1.30
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 01 17:01:44 2017
+ * C source code generated on : Wed Nov 29 15:07:03 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -454,15 +454,15 @@ RT_MODEL_model2b_T *model2b(void)
     model2b_M->Timing.sampleHits = (&mdlSampleHits[0]);
   }
 
-  rtmSetTFinal(model2b_M, 100.0);
+  rtmSetTFinal(model2b_M, 5.0);
   model2b_M->Timing.stepSize0 = 0.005;
   model2b_M->Timing.stepSize1 = 0.005;
 
   /* External mode info */
-  model2b_M->Sizes.checksums[0] = (393520639U);
-  model2b_M->Sizes.checksums[1] = (2580142356U);
-  model2b_M->Sizes.checksums[2] = (785737954U);
-  model2b_M->Sizes.checksums[3] = (2261328495U);
+  model2b_M->Sizes.checksums[0] = (3332024471U);
+  model2b_M->Sizes.checksums[1] = (1127817194U);
+  model2b_M->Sizes.checksums[2] = (3880535566U);
+  model2b_M->Sizes.checksums[3] = (3640206416U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -543,7 +543,7 @@ RT_MODEL_model2b_T *model2b(void)
   model2b_M->Sizes.numU = (0);         /* Number of model inputs */
   model2b_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   model2b_M->Sizes.numSampTimes = (2); /* Number of sample times */
-  model2b_M->Sizes.numBlocks = (44);   /* Number of blocks */
+  model2b_M->Sizes.numBlocks = (46);   /* Number of blocks */
   model2b_M->Sizes.numBlockIO = (8);   /* Number of block outputs */
   model2b_M->Sizes.numBlockPrms = (33);/* Sum of parameter "widths" */
   return model2b_M;
