@@ -6,9 +6,9 @@
  *
  * Code generation for model "model4d_rwp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 29 17:13:30 2017
+ * C source code generated on : Sat Dec 09 18:16:13 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

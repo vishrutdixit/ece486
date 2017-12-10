@@ -6,9 +6,9 @@
  *
  * Code generation for model "model4d_rwp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 29 17:13:30 2017
+ * C source code generated on : Sat Dec 09 18:16:13 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -68,12 +68,14 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&model4d_rwp_P.EncoderInput_channels[0]), 0, 0, 27 }
+  { (char_T *)(&model4d_rwp_P.EncoderInput_channels[0]), 0, 0, 27 },
+
+  { (char_T *)(&model4d_rwp_P.ManualSwitch_CurrentSetting), 3, 0, 1 }
 };
 
 /* data type transition table for Parameters structure */
 static DataTypeTransitionTable rtPTransTable = {
-  1U,
+  2U,
   rtPTransitions
 };
 

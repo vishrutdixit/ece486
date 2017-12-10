@@ -6,9 +6,9 @@
  *
  * Code generation for model "model4d_rwp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 29 17:13:30 2017
+ * C source code generated on : Sat Dec 09 18:16:13 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -117,75 +117,74 @@ void model4d_rwp_output(void)
     model4d_rwp_X.TransferFcn_CSTATE + model4d_rwp_P.TransferFcn_D *
     model4d_rwp_B.Add;
 
-  /* Abs: '<S1>/Abs' */
-  rtb_Abs = fabs(rtb_TransferFcn);
-
-  /* Switch: '<S1>/Switch2' incorporates:
-   *  Constant: '<S1>/Constant2'
+  /* ManualSwitch: '<Root>/Manual Switch' incorporates:
+   *  Constant: '<Root>/Constant2'
    */
-  if (rtb_Abs >= model4d_rwp_P.Switch2_Threshold) {
-    /* Switch: '<S1>/Switch1' incorporates:
+  if (model4d_rwp_P.ManualSwitch_CurrentSetting == 1) {
+    rtb_Abs = model4d_rwp_P.Constant2_Value;
+  } else {
+    /* Abs: '<S1>/Abs' */
+    rtb_Abs = fabs(rtb_TransferFcn);
+
+    /* Switch: '<S1>/Switch2' incorporates:
      *  Constant: '<S1>/Constant2'
      */
-    if (rtb_Abs >= model4d_rwp_P.Switch1_Threshold) {
-      rtb_Abs = rtb_TransferFcn;
+    if (rtb_Abs >= model4d_rwp_P.Switch2_Threshold) {
+      /* Switch: '<S1>/Switch1' incorporates:
+       *  Constant: '<S1>/Constant2'
+       */
+      if (rtb_Abs >= model4d_rwp_P.Switch1_Threshold) {
+        rtb_Abs = rtb_TransferFcn;
+      } else {
+        rtb_Abs = model4d_rwp_P.Constant2_Value_g;
+      }
+
+      /* End of Switch: '<S1>/Switch1' */
+
+      /* Switch: '<S1>/Switch' incorporates:
+       *  Constant: '<S1>/Constant'
+       *  Constant: '<S1>/Constant1'
+       *  Gain: '<S1>/B1'
+       *  Gain: '<S1>/B2'
+       *  Sum: '<S1>/Sum1'
+       *  Sum: '<S1>/Sum2'
+       */
+      if (rtb_Abs >= model4d_rwp_P.Switch_Threshold) {
+        rtb_Abs = model4d_rwp_P.AsymmetricLinearFriction1_slope1 * rtb_Abs +
+          model4d_rwp_P.AsymmetricLinearFriction1_intercept1;
+      } else {
+        rtb_Abs = model4d_rwp_P.AsymmetricLinearFriction1_slope2 * rtb_Abs +
+          model4d_rwp_P.AsymmetricLinearFriction1_intercept2;
+      }
+
+      /* End of Switch: '<S1>/Switch' */
     } else {
-      rtb_Abs = model4d_rwp_P.Constant2_Value;
+      rtb_Abs = model4d_rwp_P.Constant2_Value_g;
     }
 
-    /* End of Switch: '<S1>/Switch1' */
-
-    /* Switch: '<S1>/Switch' incorporates:
-     *  Constant: '<S1>/Constant'
-     *  Constant: '<S1>/Constant1'
-     *  Gain: '<S1>/B1'
-     *  Gain: '<S1>/B2'
-     *  Sum: '<S1>/Sum1'
-     *  Sum: '<S1>/Sum2'
-     */
-    if (rtb_Abs >= model4d_rwp_P.Switch_Threshold) {
-      rtb_Abs = model4d_rwp_P.AsymmetricLinearFriction_slope1 * rtb_Abs +
-        model4d_rwp_P.AsymmetricLinearFriction_intercept1;
-    } else {
-      rtb_Abs = model4d_rwp_P.AsymmetricLinearFriction_slope2 * rtb_Abs +
-        model4d_rwp_P.AsymmetricLinearFriction_intercept2;
-    }
-
-    /* End of Switch: '<S1>/Switch' */
-  } else {
-    rtb_Abs = model4d_rwp_P.Constant2_Value;
+    /* End of Switch: '<S1>/Switch2' */
   }
 
-  /* End of Switch: '<S1>/Switch2' */
+  /* End of ManualSwitch: '<Root>/Manual Switch' */
 
-  /* Sum: '<Root>/Add1' incorporates:
+  /* Gain: '<Root>/Gain5' incorporates:
    *  Gain: '<Root>/Gain3'
    *  Gain: '<Root>/Gain4'
+   *  Sum: '<Root>/Add1'
    *  Sum: '<Root>/Add3'
    *  TransferFcn: '<Root>/Transfer Fcn1'
    */
-  rtb_TransferFcn = ((model4d_rwp_P.TransferFcn1_C *
-                      model4d_rwp_X.TransferFcn1_CSTATE +
-                      model4d_rwp_P.TransferFcn1_D * model4d_rwp_B.Gain) *
-                     model4d_rwp_P.Gain3_Gain + model4d_rwp_B.Gain2) +
-    (model4d_rwp_P.Gain4_Gain * rtb_TransferFcn + rtb_Abs);
-
-  /* Saturate: '<Root>/Saturation' */
-  if (rtb_TransferFcn > model4d_rwp_P.Saturation_UpperSat) {
-    model4d_rwp_B.Saturation = model4d_rwp_P.Saturation_UpperSat;
-  } else if (rtb_TransferFcn < model4d_rwp_P.Saturation_LowerSat) {
-    model4d_rwp_B.Saturation = model4d_rwp_P.Saturation_LowerSat;
-  } else {
-    model4d_rwp_B.Saturation = rtb_TransferFcn;
-  }
-
-  /* End of Saturate: '<Root>/Saturation' */
+  model4d_rwp_B.Gain5 = (((model4d_rwp_P.TransferFcn1_C *
+    model4d_rwp_X.TransferFcn1_CSTATE + model4d_rwp_P.TransferFcn1_D *
+    model4d_rwp_B.Gain) * model4d_rwp_P.Gain3_Gain + model4d_rwp_B.Gain2) +
+    (model4d_rwp_P.Gain4_Gain * rtb_TransferFcn + rtb_Abs)) *
+    model4d_rwp_P.Gain5_Gain;
   if (rtmIsMajorTimeStep(model4d_rwp_M)) {
     /* S-Function (c6xpwm): '<S3>/S-function' */
     /* S-Function Block: <Root>/PWM Output (c6xpwm) */
     {
       int16_T value;
-      value = C6X_pwmArbUnitsToOutput(model4d_rwp_B.Saturation);
+      value = C6X_pwmArbUnitsToOutput(model4d_rwp_B.Gain5);
       C6X_pwmOutput(0x378, (uint_T)model4d_rwp_P.PWMOutput_channels, value);
     }
   }
@@ -427,21 +426,22 @@ RT_MODEL_model4d_rwp_T *model4d_rwp(void)
   model4d_rwp_M->Timing.stepSize1 = 0.005;
 
   /* External mode info */
-  model4d_rwp_M->Sizes.checksums[0] = (521364156U);
-  model4d_rwp_M->Sizes.checksums[1] = (3426271966U);
-  model4d_rwp_M->Sizes.checksums[2] = (1664792070U);
-  model4d_rwp_M->Sizes.checksums[3] = (1574785133U);
+  model4d_rwp_M->Sizes.checksums[0] = (2921324420U);
+  model4d_rwp_M->Sizes.checksums[1] = (1098213664U);
+  model4d_rwp_M->Sizes.checksums[2] = (2057719838U);
+  model4d_rwp_M->Sizes.checksums[3] = (3057143095U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[4];
+    static const sysRanDType *systemRan[5];
     model4d_rwp_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
     systemRan[1] = &rtAlwaysEnabled;
     systemRan[2] = &rtAlwaysEnabled;
     systemRan[3] = &rtAlwaysEnabled;
+    systemRan[4] = &rtAlwaysEnabled;
     rteiSetModelMappingInfoPtr(model4d_rwp_M->extModeInfo,
       &model4d_rwp_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(model4d_rwp_M->extModeInfo,
@@ -463,7 +463,7 @@ RT_MODEL_model4d_rwp_T *model4d_rwp(void)
     model4d_rwp_B.Gain = 0.0;
     model4d_rwp_B.Gain2 = 0.0;
     model4d_rwp_B.Add = 0.0;
-    model4d_rwp_B.Saturation = 0.0;
+    model4d_rwp_B.Gain5 = 0.0;
   }
 
   /* parameters */
@@ -501,9 +501,9 @@ RT_MODEL_model4d_rwp_T *model4d_rwp(void)
   model4d_rwp_M->Sizes.numU = (0);     /* Number of model inputs */
   model4d_rwp_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   model4d_rwp_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  model4d_rwp_M->Sizes.numBlocks = (29);/* Number of blocks */
+  model4d_rwp_M->Sizes.numBlocks = (32);/* Number of blocks */
   model4d_rwp_M->Sizes.numBlockIO = (5);/* Number of block outputs */
-  model4d_rwp_M->Sizes.numBlockPrms = (27);/* Sum of parameter "widths" */
+  model4d_rwp_M->Sizes.numBlockPrms = (28);/* Sum of parameter "widths" */
   return model4d_rwp_M;
 }
 

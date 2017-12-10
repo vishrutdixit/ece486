@@ -6,9 +6,9 @@
  *
  * Code generation for model "model4d_rwp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 29 17:13:30 2017
+ * C source code generated on : Sat Dec 09 18:16:13 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -35,16 +35,16 @@ P_model4d_rwp_T model4d_rwp_P = {
   0.0,                                 /* Mask Parameter: PWMOutput_initialOutputs
                                         * Referenced by: '<S3>/S-function'
                                         */
-  0.40333333333333332,                 /* Mask Parameter: AsymmetricLinearFriction_intercept1
+  0.40333333333333332,                 /* Mask Parameter: AsymmetricLinearFriction1_intercept1
                                         * Referenced by: '<S1>/Constant'
                                         */
-  -0.44666666666666666,                /* Mask Parameter: AsymmetricLinearFriction_intercept2
+  -0.44666666666666666,                /* Mask Parameter: AsymmetricLinearFriction1_intercept2
                                         * Referenced by: '<S1>/Constant1'
                                         */
-  0.0084,                              /* Mask Parameter: AsymmetricLinearFriction_slope1
+  0.0084,                              /* Mask Parameter: AsymmetricLinearFriction1_slope1
                                         * Referenced by: '<S1>/B1'
                                         */
-  0.0085333333333333337,               /* Mask Parameter: AsymmetricLinearFriction_slope2
+  0.0085333333333333337,               /* Mask Parameter: AsymmetricLinearFriction1_slope2
                                         * Referenced by: '<S1>/B2'
                                         */
   0.1,                                 /* Expression: 0.1
@@ -52,6 +52,9 @@ P_model4d_rwp_T model4d_rwp_P = {
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S1>/Switch'
+                                        */
+  0.1,                                 /* Expression: 0.1
+                                        * Referenced by: '<S1>/Switch2'
                                         */
   3.1415926535897931,                  /* Expression: pi
                                         * Referenced by: '<Root>/Constant1'
@@ -74,6 +77,9 @@ P_model4d_rwp_T model4d_rwp_P = {
   23.11,                               /* Expression: 23.11
                                         * Referenced by: '<Root>/Gain3'
                                         */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<Root>/Constant2'
+                                        */
   0.0015707963267948967,               /* Expression: 2*pi/4000
                                         * Referenced by: '<Root>/Gain1'
                                         */
@@ -89,16 +95,13 @@ P_model4d_rwp_T model4d_rwp_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S1>/Constant2'
                                         */
-  0.1,                                 /* Expression: 0.1
-                                        * Referenced by: '<S1>/Switch2'
-                                        */
   0.0448,                              /* Expression: 0.0448
                                         * Referenced by: '<Root>/Gain4'
                                         */
-  10.0,                                /* Expression: 10
-                                        * Referenced by: '<Root>/Saturation'
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<Root>/Gain5'
                                         */
-  -10.0                                /* Expression: -10
-                                        * Referenced by: '<Root>/Saturation'
+  1U                                   /* Computed Parameter: ManualSwitch_CurrentSetting
+                                        * Referenced by: '<Root>/Manual Switch'
                                         */
 };

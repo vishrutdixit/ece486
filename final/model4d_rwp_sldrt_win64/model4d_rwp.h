@@ -6,9 +6,9 @@
  *
  * Code generation for model "model4d_rwp".
  *
- * Model version              : 1.29
+ * Model version              : 1.31
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Wed Nov 29 17:13:30 2017
+ * C source code generated on : Sat Dec 09 18:16:13 2017
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -823,7 +823,7 @@ typedef struct {
   real_T Gain;                         /* '<Root>/Gain' */
   real_T Gain2;                        /* '<Root>/Gain2' */
   real_T Add;                          /* '<Root>/Add' */
-  real_T Saturation;                   /* '<Root>/Saturation' */
+  real_T Gain5;                        /* '<Root>/Gain5' */
 } B_model4d_rwp_T;
 
 /* Continuous states (auto storage) */
@@ -880,23 +880,26 @@ struct P_model4d_rwp_T_ {
   real_T PWMOutput_initialOutputs;     /* Mask Parameter: PWMOutput_initialOutputs
                                         * Referenced by: '<S3>/S-function'
                                         */
-  real_T AsymmetricLinearFriction_intercept1;/* Mask Parameter: AsymmetricLinearFriction_intercept1
-                                              * Referenced by: '<S1>/Constant'
-                                              */
-  real_T AsymmetricLinearFriction_intercept2;/* Mask Parameter: AsymmetricLinearFriction_intercept2
-                                              * Referenced by: '<S1>/Constant1'
-                                              */
-  real_T AsymmetricLinearFriction_slope1;/* Mask Parameter: AsymmetricLinearFriction_slope1
-                                          * Referenced by: '<S1>/B1'
-                                          */
-  real_T AsymmetricLinearFriction_slope2;/* Mask Parameter: AsymmetricLinearFriction_slope2
-                                          * Referenced by: '<S1>/B2'
-                                          */
+  real_T AsymmetricLinearFriction1_intercept1;/* Mask Parameter: AsymmetricLinearFriction1_intercept1
+                                               * Referenced by: '<S1>/Constant'
+                                               */
+  real_T AsymmetricLinearFriction1_intercept2;/* Mask Parameter: AsymmetricLinearFriction1_intercept2
+                                               * Referenced by: '<S1>/Constant1'
+                                               */
+  real_T AsymmetricLinearFriction1_slope1;/* Mask Parameter: AsymmetricLinearFriction1_slope1
+                                           * Referenced by: '<S1>/B1'
+                                           */
+  real_T AsymmetricLinearFriction1_slope2;/* Mask Parameter: AsymmetricLinearFriction1_slope2
+                                           * Referenced by: '<S1>/B2'
+                                           */
   real_T Switch1_Threshold;            /* Expression: 0.1
                                         * Referenced by: '<S1>/Switch1'
                                         */
   real_T Switch_Threshold;             /* Expression: 0
                                         * Referenced by: '<S1>/Switch'
+                                        */
+  real_T Switch2_Threshold;            /* Expression: 0.1
+                                        * Referenced by: '<S1>/Switch2'
                                         */
   real_T Constant1_Value;              /* Expression: pi
                                         * Referenced by: '<Root>/Constant1'
@@ -919,6 +922,9 @@ struct P_model4d_rwp_T_ {
   real_T Gain3_Gain;                   /* Expression: 23.11
                                         * Referenced by: '<Root>/Gain3'
                                         */
+  real_T Constant2_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/Constant2'
+                                        */
   real_T Gain1_Gain;                   /* Expression: 2*pi/4000
                                         * Referenced by: '<Root>/Gain1'
                                         */
@@ -931,20 +937,17 @@ struct P_model4d_rwp_T_ {
   real_T TransferFcn_D;                /* Computed Parameter: TransferFcn_D
                                         * Referenced by: '<Root>/Transfer Fcn'
                                         */
-  real_T Constant2_Value;              /* Expression: 0
+  real_T Constant2_Value_g;            /* Expression: 0
                                         * Referenced by: '<S1>/Constant2'
-                                        */
-  real_T Switch2_Threshold;            /* Expression: 0.1
-                                        * Referenced by: '<S1>/Switch2'
                                         */
   real_T Gain4_Gain;                   /* Expression: 0.0448
                                         * Referenced by: '<Root>/Gain4'
                                         */
-  real_T Saturation_UpperSat;          /* Expression: 10
-                                        * Referenced by: '<Root>/Saturation'
+  real_T Gain5_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain5'
                                         */
-  real_T Saturation_LowerSat;          /* Expression: -10
-                                        * Referenced by: '<Root>/Saturation'
+  uint8_T ManualSwitch_CurrentSetting; /* Computed Parameter: ManualSwitch_CurrentSetting
+                                        * Referenced by: '<Root>/Manual Switch'
                                         */
 };
 
@@ -1095,7 +1098,7 @@ extern RT_MODEL_model4d_rwp_T *const model4d_rwp_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'model4d_rwp'
- * '<S1>'   : 'model4d_rwp/Asymmetric  Linear Friction'
+ * '<S1>'   : 'model4d_rwp/Asymmetric  Linear Friction1'
  * '<S2>'   : 'model4d_rwp/Encoder Input'
  * '<S3>'   : 'model4d_rwp/PWM Output'
  */
