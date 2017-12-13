@@ -1,1 +1,0 @@
-   model6_threestate.c 
